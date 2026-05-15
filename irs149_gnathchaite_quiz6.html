@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="ga">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IRS149 · An Aimsir Ghnáthchaite & Cúrsaí Reatha</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=JetBrains+Mono:wght@400;500&family=Inter:wght@400;500;700&display=swap');
+
+:root{
+  --bg:#08090e;--s1:#0e1018;--s2:#141820;--s3:#1b2230;
+  --bord:#222c40;--slate:#3a7ab8;--amber:#c49030;
+  --teal:#32a898;--violet:#7c68d8;--green:#36a862;
+  --red:#c84848;--text:#c8d4e6;--dim:#5a7090;--muted:#334050;
+  --tip:#0b1724;--tcol:#52a0d0;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;font-size:15px;line-height:1.65;}
+
+header{background:linear-gradient(135deg,#0c0f18 0%,#141c2e 100%);border-bottom:2px solid var(--slate);padding:15px 20px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+header h1{font-family:'Libre Baskerville',serif;font-size:1.2rem;color:var(--amber);font-weight:700;}
+header p{color:var(--dim);font-size:0.77rem;margin-top:2px;}
+.badge{background:var(--s3);border:2px solid var(--amber);border-radius:8px;padding:6px 16px;text-align:center;}
+.badge .pts{font-family:'JetBrains Mono',monospace;font-size:1.5rem;color:var(--amber);}
+.badge .lbl{font-size:0.67rem;color:var(--dim);}
+
+.tabs{background:var(--s1);border-bottom:1px solid var(--bord);display:flex;overflow-x:auto;padding:0 12px;}
+.tab{background:none;border:none;border-bottom:3px solid transparent;color:var(--dim);cursor:pointer;font-family:'Inter',sans-serif;font-size:0.71rem;font-weight:700;letter-spacing:.04em;padding:10px 11px 8px;text-transform:uppercase;white-space:nowrap;transition:color .15s,border-color .15s;}
+.tab:hover{color:var(--text);}
+.tab.on{color:var(--amber);border-bottom-color:var(--amber);}
+
+.panel{display:none;padding:18px 15px;max-width:870px;margin:0 auto;}
+.panel.on{display:block;}
+
+/* notes */
+.ns{background:var(--s1);border:1px solid var(--bord);border-radius:8px;margin-bottom:14px;overflow:hidden;}
+.nsh{background:var(--s2);border-bottom:1px solid var(--bord);color:var(--amber);font-family:'JetBrains Mono',monospace;font-size:0.74rem;letter-spacing:.08em;padding:8px 13px;text-transform:uppercase;}
+.nsb{padding:13px 15px;}
+.bi{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--bord);border-radius:6px;overflow:hidden;margin-bottom:10px;}
+.biga{padding:10px 12px;border-right:1px solid var(--bord);}
+.bien{padding:10px 12px;color:var(--dim);font-style:italic;}
+.bilbl{color:var(--muted);font-size:.67rem;font-family:'JetBrains Mono',monospace;letter-spacing:.1em;text-transform:uppercase;margin-bottom:2px;}
+.nt{background:var(--tip);border-left:3px solid var(--tcol);border-radius:4px;color:var(--tcol);font-size:.81rem;padding:7px 11px;margin:7px 0;}
+.gt{width:100%;border-collapse:collapse;font-size:.84rem;margin:8px 0;}
+.gt th{background:var(--s2);border-bottom:2px solid var(--bord);color:var(--dim);font-family:'JetBrains Mono',monospace;font-size:.68rem;letter-spacing:.08em;padding:6px 9px;text-align:left;text-transform:uppercase;}
+.gt td{border-bottom:1px solid var(--bord);padding:6px 9px;vertical-align:top;}
+.gt tr:hover td{background:#0b0f18;}
+.hi{color:var(--teal);font-family:'JetBrains Mono',monospace;font-weight:500;}
+.vi{color:var(--violet);font-family:'JetBrains Mono',monospace;font-weight:500;}
+.go{color:var(--amber);font-family:'JetBrains Mono',monospace;font-weight:500;}
+.sl{color:var(--slate);font-family:'JetBrains Mono',monospace;font-weight:500;}
+.conj-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px;}
+.cbox{background:var(--s2);border:1px solid var(--bord);border-radius:6px;padding:10px 12px;}
+.cbox h4{color:var(--amber);font-family:'JetBrains Mono',monospace;font-size:.72rem;letter-spacing:.07em;margin-bottom:7px;text-transform:uppercase;}
+.cf{display:flex;justify-content:space-between;font-size:.83rem;padding:3px 0;border-bottom:1px solid #151e2e;}
+.cf:last-child{border:none;}
+.cf-ga{color:var(--teal);}
+.cf-en{color:var(--dim);font-size:.78rem;}
+/* vocab 2-col */
+.vocab-cols{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:8px 0;}
+
+/* section head */
+.sh{background:linear-gradient(90deg,var(--s2) 0%,var(--s1) 100%);border:1px solid var(--bord);border-radius:8px;margin-bottom:14px;padding:10px 14px;display:flex;align-items:center;justify-content:space-between;}
+.sh h2{color:var(--amber);font-family:'JetBrains Mono',monospace;font-size:.87rem;}
+.sh p{color:var(--dim);font-size:.77rem;margin-top:2px;}
+.sec-sc{color:var(--dim);font-family:'JetBrains Mono',monospace;font-size:.77rem;white-space:nowrap;}
+.sec-sc span{color:var(--amber);}
+
+/* question card */
+.qcard{background:var(--s1);border:1px solid var(--bord);border-radius:9px;margin-bottom:14px;overflow:hidden;transition:border-color .2s;}
+.qcard.ok{border-color:var(--green);}
+.qcard.err{border-color:var(--red);}
+.qcard.skp{border-color:var(--muted);}
+.qctop{background:var(--s2);border-bottom:1px solid var(--bord);padding:7px 13px;display:flex;justify-content:space-between;font-family:'JetBrains Mono',monospace;font-size:.71rem;color:var(--dim);}
+.qn{color:var(--amber);font-weight:500;}
+.qp{color:var(--teal);}
+.qcbody{padding:15px 14px 12px;}
+.qga{color:var(--text);font-size:1rem;margin-bottom:11px;font-weight:500;line-height:1.4;}
+.qhint{color:var(--violet);font-size:.8rem;margin-bottom:11px;margin-top:-5px;font-style:italic;}
+
+/* mc */
+.mcg{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-bottom:8px;}
+.mco{background:var(--s2);border:2px solid var(--bord);border-radius:6px;color:var(--text);cursor:pointer;font-family:'Inter',sans-serif;font-size:.82rem;padding:8px 11px;text-align:left;transition:border-color .15s,background .15s;line-height:1.35;}
+.mco:hover:not(:disabled){border-color:var(--amber);background:var(--s3);}
+.mco.cok{border-color:var(--green)!important;background:#091a0f!important;color:var(--green)!important;}
+.mco.cer{border-color:var(--red)!important;background:#190909!important;color:var(--red)!important;}
+.mco:disabled{cursor:default;opacity:.9;}
+
+/* input */
+.aw{display:flex;gap:7px;margin-bottom:8px;}
+.ainp{background:#050810;border:2px solid var(--bord);border-radius:6px;color:var(--text);flex:1;font-family:'JetBrains Mono',monospace;font-size:.93rem;padding:8px 11px;transition:border-color .15s;}
+.ainp:focus{border-color:var(--teal);outline:none;}
+.ainp.ok-i{border-color:var(--green);background:#071410;}
+.ainp.er-i{border-color:var(--red);background:#140707;}
+.ainp:disabled{opacity:.75;}
+
+/* buttons */
+.btn{background:var(--s2);border:2px solid var(--bord);border-radius:6px;color:var(--text);cursor:pointer;font-family:'Inter',sans-serif;font-size:.83rem;font-weight:700;padding:7px 14px;transition:all .15s;white-space:nowrap;}
+.btn:hover{border-color:var(--teal);color:var(--teal);}
+.btn-chk{background:#091c1a;border-color:var(--teal);color:var(--teal);font-size:.88rem;padding:8px 18px;}
+.btn-chk:hover{background:#0f2420;}
+.btn-rev{border-color:var(--muted);color:var(--dim);}
+.btn-mk{background:#0d1f0d;border-color:var(--green);color:var(--green);font-size:.78rem;display:none;margin-top:4px;}
+
+/* feedback */
+.fb{display:none;border-radius:6px;margin-top:7px;overflow:hidden;}
+.fb.show{display:block;}
+.fbtop{padding:7px 12px;font-weight:700;font-size:.85rem;font-family:'JetBrains Mono',monospace;}
+.fb-ok{background:#091a0f;color:var(--green);}
+.fb-er{background:#190909;color:var(--red);}
+.fb-sk{background:var(--s3);color:var(--dim);}
+.fbbody{background:var(--tip);border-top:1px solid var(--bord);padding:9px 12px;}
+.fb-ans{color:var(--amber);font-family:'JetBrains Mono',monospace;font-size:.88rem;margin-bottom:3px;}
+.fb-alt{color:var(--dim);font-family:'JetBrains Mono',monospace;font-size:.81rem;margin:2px 0;}
+.fb-tip{color:var(--tcol);font-size:.81rem;margin-top:5px;line-height:1.5;}
+
+/* passage */
+.passage{background:var(--s1);border:1px solid var(--bord);border-radius:8px;margin-bottom:16px;overflow:hidden;}
+.phead{background:var(--s2);border-bottom:1px solid var(--bord);color:var(--amber);font-family:'JetBrains Mono',monospace;font-size:.74rem;letter-spacing:.08em;padding:8px 13px;text-transform:uppercase;}
+.pbody{padding:14px 15px;font-size:.9rem;line-height:1.82;color:var(--text);}
+.pbody p{margin-bottom:10px;}
+
+@media(max-width:540px){
+  .mcg,.bi,.conj-grid,.vocab-cols{grid-template-columns:1fr;}
+  .biga{border-right:none;border-bottom:1px solid var(--bord);}
+  .aw{flex-direction:column;}
+  .btn-chk{width:100%;}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div>
+    <h1>An Aimsir Ghnáthchaite & Cúrsaí Reatha</h1>
+    <p>IRS149 · Seachtain 4 · Past Habitual Tense & Current Affairs</p>
+  </div>
+  <div class="badge">
+    <div class="pts" id="total-pts">0</div>
+    <div class="lbl">marcanna</div>
+  </div>
+</header>
+
+<nav class="tabs">
+  <button class="tab on" onclick="T('notes',this)">📖 Nótaí</button>
+  <button class="tab" onclick="T('sec-a',this)">A · Aithint</button>
+  <button class="tab" onclick="T('sec-b',this)">B · Cuir sa GhC</button>
+  <button class="tab" onclick="T('sec-c',this)">C · Aistriúchán</button>
+  <button class="tab" onclick="T('sec-d',this)">D · Léamhthuiscint</button>
+  <button class="tab" onclick="T('sec-e',this)">E · Stór Focal</button>
+</nav>
+
+<!-- ══════════ NOTES ══════════ -->
+<div id="notes" class="panel on">
+
+  <div class="ns">
+    <div class="nsh">1 · Cad í an Aimsir Ghnáthchaite? · What is the Past Habitual?</div>
+    <div class="nsb">
+      <div class="bi">
+        <div class="biga"><div class="bilbl">Gaeilge</div>Úsáidtear an aimsir ghnáthchaite chun gníomhartha a tharla arís agus arís eile san am caite a chur in iúl. Is minic a bhíonn "used to" nó "would" sa Bhéarla ann. Bíonn séimhiú ar thús an bhriathair, díreach cosúil leis an aimsir chaite agus an modh coinníollach.</div>
+        <div class="bien"><div class="bilbl">English</div>The past habitual describes actions that happened repeatedly or habitually in the past. English equivalents: "used to" or "would" (e.g. "he used to play / he would play"). Like the past tense and conditional, it causes lenition on the initial consonant.</div>
+      </div>
+      <table class="gt">
+        <thead><tr><th>Feidhm · Use</th><th>Sampla Gaeilge</th><th>Béarla</th></tr></thead>
+        <tbody>
+          <tr><td>Gníomh athchleachta · Repeated action</td><td class="hi">D'fhágadh mo mháthair ann mé</td><td>My mother used to leave me there</td></tr>
+          <tr><td>Nós · Habit</td><td class="hi">Cheannaíodh sé bainne sa gharáiste</td><td>He used to buy milk in the garage</td></tr>
+          <tr><td>Staid athchleachta · Repeated state</td><td class="hi">Bhíodh cuma ghruama ar an chathair</td><td>The city used to look gloomy</td></tr>
+          <tr><td>Leagan timchainteach · Periphrastic</td><td class="hi">Ba ghnách liom dul amach</td><td>I used to go out (lit: it was usual for me)</td></tr>
+          <tr><td>Nár ghnách · Neg. periphrastic</td><td class="hi">Níor ghnách liom Gaeilge a fhoghlaim</td><td>I didn't used to learn Irish</td></tr>
+        </tbody>
+      </table>
+      <div class="nt"><strong>Ba ghnách le + ainmní + ainm briathartha</strong> = used to [do]. Leagan timchainteach: Ba ghnách liom / leat / leis / léi / linn / libh / leo. Diúltach: <em>Níor ghnách liom…</em></div>
+    </div>
+  </div>
+
+  <div class="ns">
+    <div class="nsh">2 · Foirmeacha · Forms: 1ú Réimniú</div>
+    <div class="nsb">
+      <div class="bi" style="margin-bottom:10px">
+        <div class="biga"><div class="bilbl">Gaeilge</div>1ú Réimniú: séimhiú ar thús an bhriathair + iarmhírí cosúil leis an mhodh coinníollach. Sa 3ú pearsa uatha: -adh (leathan) nó -eadh (caol). Sa 2ú pearsa uatha: -tá (leathan) nó -teá (caol).</div>
+        <div class="bien"><div class="bilbl">English</div>1st conjugation: lenite the stem + add endings similar to the conditional. 3sg: -adh/-eadh. 2sg: -tá/-teá. D' before vowel-initial or f+vowel stems.</div>
+      </div>
+      <table class="gt">
+        <thead><tr><th>Pearsa</th><th>Leathan: dún</th><th>Caol: bris</th><th>Iarmhír</th></tr></thead>
+        <tbody>
+          <tr><td>Mé</td><td class="hi">Dhúnainn</td><td class="hi">Bhrisinn</td><td>-ainn / -inn</td></tr>
+          <tr><td>Tú</td><td class="hi">Dhúntá</td><td class="hi">Bhristeá</td><td>-tá / -teá</td></tr>
+          <tr><td>Sé/Sí</td><td class="hi">Dhúnadh sé</td><td class="hi">Bhriseadh sé</td><td>-adh / -eadh</td></tr>
+          <tr><td>Muid (táth.)</td><td class="hi">Dhúnaimis</td><td class="hi">Bhrisimis</td><td>-aimis / -imis</td></tr>
+          <tr><td>Sibh</td><td class="hi">Dhúnadh sibh</td><td class="hi">Bhriseadh sibh</td><td>-adh sibh</td></tr>
+          <tr><td>Siad (táth.)</td><td class="hi">Dhúnaidís</td><td class="hi">Bhrisidís</td><td>-aidís / -idís</td></tr>
+          <tr><td>Uathoibreánach</td><td class="hi">Dhúntaí</td><td class="hi">Bhristí</td><td>-taí / -tí</td></tr>
+          <tr><td>Diúltach</td><td class="sl">Ní dhúnainn</td><td class="sl">Ní bhrisinn</td><td>Ní + séimhiú</td></tr>
+          <tr><td>Ceisteach</td><td class="vi">An ndúntá?</td><td class="vi">An mbristeá?</td><td>An + urú</td></tr>
+        </tbody>
+      </table>
+      <div class="nt"><strong>Samplaí eile:</strong> Pacáil → <span class="hi">Phacálainn</span> · Siúil → <span class="hi">Shiúlainn</span> · Dóigh → <span class="hi">Dhóinn</span> · Pléigh → <span class="hi">Phléinn</span> · Ól → <span class="hi">D'ólainn</span> · Fág → <span class="hi">D'fhágainn</span></div>
+    </div>
+  </div>
+
+  <div class="ns">
+    <div class="nsh">3 · Foirmeacha · Forms: 2ú Réimniú</div>
+    <div class="nsb">
+      <div class="bi" style="margin-bottom:10px">
+        <div class="biga"><div class="bilbl">Gaeilge</div>2ú Réimniú: séimhiú + iarmhír -aínn/-ínn (1ú pearsa), -aíodh/-íodh (3ú pearsa), -aíteá/-íteá (2ú pearsa). Bunaithe ar an fhoirm láithreach.</div>
+        <div class="bien"><div class="bilbl">English</div>2nd conjugation: lenite + -aínn/-ínn (1sg), -aíodh/-íodh (3sg), -aíteá/-íteá (2sg). Based on the present tense stem.</div>
+      </div>
+      <table class="gt">
+        <thead><tr><th>Pearsa</th><th>Leathan: tosaigh</th><th>Caol: imigh</th><th>Iarmhír</th></tr></thead>
+        <tbody>
+          <tr><td>Mé</td><td class="vi">Thosaínn</td><td class="vi">D'imínn</td><td>-aínn / -ínn</td></tr>
+          <tr><td>Tú</td><td class="vi">Thosaíteá</td><td class="vi">D'imíteá</td><td>-aíteá / -íteá</td></tr>
+          <tr><td>Sé/Sí</td><td class="vi">Thosaíodh sé</td><td class="vi">D'imíodh sé</td><td>-aíodh / -íodh</td></tr>
+          <tr><td>Muid (táth.)</td><td class="vi">Thosaímis</td><td class="vi">D'imímis</td><td>-aímis / -ímis</td></tr>
+          <tr><td>Sibh</td><td class="vi">Thosaíodh sibh</td><td class="vi">D'imíodh sibh</td><td>-aíodh sibh</td></tr>
+          <tr><td>Siad (táth.)</td><td class="vi">Thosaídís</td><td class="vi">D'imídís</td><td>-aídís / -ídís</td></tr>
+          <tr><td>Uathoibreánach</td><td class="vi">Thosaítí</td><td class="vi">D'imítí</td><td>-aítí / -ítí</td></tr>
+          <tr><td>Diúltach</td><td class="sl">Ní thosaínn</td><td class="sl">Ní imínn</td><td>Ní + séimhiú</td></tr>
+          <tr><td>Ceisteach</td><td class="vi">An dtosaíteá?</td><td class="vi">An imíteá?</td><td>An + urú</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="ns">
+    <div class="nsh">4 · Briathra Mírialta · Irregular Verbs — Past Habitual</div>
+    <div class="nsb">
+      <div class="nt" style="margin-bottom:10px"><strong>Riail:</strong> Cuirtear iarmhírí an chéad réimniú le gas an láithrigh de na briathra mírialta. Abair/deir: ní shéimhítear é (deirinn, deireadh sé etc.).<br><strong>Rule:</strong> 1st conjugation endings added to the <em>present tense stems</em> of irregular verbs. Abair/deir is NOT lenited in past habitual.</div>
+      <table class="gt">
+        <thead><tr><th>Briathar</th><th>Mé</th><th>Sé/Sí</th><th>Siad</th><th>Diúltach</th></tr></thead>
+        <tbody>
+          <tr><td class="go">bí</td><td class="hi">Bhínn</td><td class="hi">Bhíodh sé</td><td class="hi">Bhídís</td><td class="sl">Ní bhínn</td></tr>
+          <tr><td class="go">abair</td><td class="hi">Deirinn</td><td class="hi">Deireadh sé</td><td class="hi">Deiridís</td><td class="sl">Ní deirinn</td></tr>
+          <tr><td class="go">déan</td><td class="hi">Dhéanainn</td><td class="hi">Dhéanadh sé</td><td class="hi">Dhéanaidís</td><td class="sl">Ní dhéanainn</td></tr>
+          <tr><td class="go">faigh</td><td class="hi">D'fhaighinn</td><td class="hi">D'fhaigheadh sé</td><td class="hi">D'fhaighidís</td><td class="sl">Ní fhaighinn</td></tr>
+          <tr><td class="go">feic</td><td class="hi">D'fheicinn</td><td class="hi">D'fheiceadh sé</td><td class="hi">D'fheicidís</td><td class="sl">Ní fheicinn</td></tr>
+          <tr><td class="go">ith</td><td class="hi">D'ithinn</td><td class="hi">D'itheadh sé</td><td class="hi">D'ithidís</td><td class="sl">Ní ithinn</td></tr>
+          <tr><td class="go">tabhair</td><td class="hi">Thugainn</td><td class="hi">Thugadh sé</td><td class="hi">Thugaidís</td><td class="sl">Ní thugainn</td></tr>
+          <tr><td class="go">tar</td><td class="hi">Thagainn</td><td class="hi">Thagadh sé</td><td class="hi">Thagaidís</td><td class="sl">Ní thagainn</td></tr>
+          <tr><td class="go">téigh</td><td class="hi">Théinn</td><td class="hi">Théadh sé</td><td class="hi">Théidís</td><td class="sl">Ní théinn</td></tr>
+          <tr><td class="go">cluin</td><td class="hi">Chluininn</td><td class="hi">Chluineadh sé</td><td class="hi">Chluinidís</td><td class="sl">Ní chluininn</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="ns">
+    <div class="nsh">5 · Cosúlacht leis an Mhodh Coinníollach · Comparison with Conditional</div>
+    <div class="nsb">
+      <div class="bi">
+        <div class="biga"><div class="bilbl">Gaeilge</div>Tá na hiarmhírí an-chosúil lena chéile — ach tabhair faoi deara na difríochtaí: an aimsir ghnáthchaite úsáideann -adh/-eadh sa 3ú pearsa agus -tá/-teá sa 2ú pearsa; an modh coinníollach úsáideann -fadh/-feadh agus -fá/-feá.</div>
+        <div class="bien"><div class="bilbl">English</div>The endings are very similar — note the key differences: past habitual uses -adh/-eadh (3sg) and -tá/-teá (2sg); conditional uses -fadh/-feadh (3sg) and -fá/-feá (2sg). Both cause initial lenition.</div>
+      </div>
+      <table class="gt">
+        <thead><tr><th>Pearsa</th><th>Gnáthchaite</th><th>Coinníollach</th></tr></thead>
+        <tbody>
+          <tr><td>Mé</td><td class="hi">dhúnainn</td><td class="vi">dhúnfainn</td></tr>
+          <tr><td>Tú</td><td class="hi">dhúntá</td><td class="vi">dhúnfá</td></tr>
+          <tr><td>Sé/Sí</td><td class="hi">dhúnadh sé</td><td class="vi">dhúnfadh sé</td></tr>
+          <tr><td>Siad</td><td class="hi">dhúnaidís</td><td class="vi">dhúnfaidís</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</div>
+
+<!-- ══════════ A: AITHINT ══════════ -->
+<div id="sec-a" class="panel">
+  <div class="sh">
+    <div><h2>A · Aithint na hAimsire Gnáthchaite</h2><p>Cliceáil an rogha cheart · Click the correct answer</p></div>
+    <div class="sec-sc">Marcanna: <span id="sc-a">0</span> / <span id="sct-a">0</span></div>
+  </div>
+  <div id="qa"></div>
+</div>
+
+<!-- ══════════ B: CUIR SA GHC ══════════ -->
+<div id="sec-b" class="panel">
+  <div class="sh">
+    <div><h2>B · Cuir san Aimsir Ghnáthchaite</h2><p>Aistrigh nó athraigh go dtí an aimsir ghnáthchaite</p></div>
+    <div class="sec-sc">Marcanna: <span id="sc-b">0</span> / <span id="sct-b">0</span></div>
+  </div>
+  <div id="qb"></div>
+</div>
+
+<!-- ══════════ C: AISTRIÚCHÁN ══════════ -->
+<div id="sec-c" class="panel">
+  <div class="sh">
+    <div><h2>C · Aistriúchán · "Used to…"</h2><p>Scríobh sa Ghaeilge — tabhair an fhoirm ghnáthchaite</p></div>
+    <div class="sec-sc">Marcanna: <span id="sc-c">0</span> / <span id="sct-c">0</span></div>
+  </div>
+  <div id="qc"></div>
+</div>
+
+<!-- ══════════ D: LÉAMHTHUISCINT ══════════ -->
+<div id="sec-d" class="panel">
+  <div class="sh">
+    <div><h2>D · Léamhthuiscint · Comhaontú Aoine an Chéasta</h2><p>Léigh agus freagair · Read and answer</p></div>
+    <div class="sec-sc">Marcanna: <span id="sc-d">0</span> / <span id="sct-d">0</span></div>
+  </div>
+  <div class="passage">
+    <div class="phead">An sliocht · The passage</div>
+    <div class="pbody">
+      <p>Go dtí gur tharla an Comhaontú, níor chreid mé go bhfeicfinn an tsíocháin anseo go deo. Bhí mé ag súil leis go bhfeicfeadh mo chuid páistí í ach níor cheap mé go dtarlódh sé le mo linnse.</p>
+      <p>Seacht mbliana d'aois a bhí mise nuair a thosaigh an Trioblóidí agus is beag cuimhne atá agam ar an tsaol roimh 1969. Ní raibh mé ábalta sochaí a shamhlú nach raibh deighilte nó i mbun cogaíochta léi féin.</p>
+      <p>Nuair a fheicim íomhánna de Bhéal Feirste ón am sin roimh Chomhaontú Aoine an Chéasta, bíonn cuma ghruama dhearóil ar an chathair agus sin go díreach an chuimhne atá agamsa ar an áit.</p>
+      <p>Agus ansin go tobann d'athraigh cúrsaí, bhí an Comhaontú againn. Is maith is cuimhin liom an lá sin, an lúcháir ar aghaidh na ndaoine ar an teilifís, an gliondar is an fonn ceiliúrtha. Dúradh linn go raibh sé thart, go raibh an tsíocháin tagtha.</p>
+      <p>Sna míonna agus sna blianta ina dhiaidh sin, chonaic mé na foirgnimh nua á dtógáil ar fud Bhéal Feirste. Is maith is cuimhin liom an taispeántas tinte ealaíne ag Halla an Waterfront. Bhí cathair Bhéal Feirste lonrach soilseach agus lán dóchais.</p>
+      <p>D'athraigh Comhaontú Aoine an Chéasta mo shaol, ní hamháin gur thug sé síocháin chugainn ach chruthaigh sé spás dom le tús a chur le m'aistear foghlama chun na Gaeilge.</p>
+    </div>
+  </div>
+  <div id="qd"></div>
+</div>
+
+<!-- ══════════ E: STÓR FOCAL ══════════ -->
+<div id="sec-e" class="panel">
+  <div class="sh">
+    <div><h2>E · Stór Focal · Cúrsaí Reatha</h2><p>Cliceáil an leagan ceart · Click the correct Irish</p></div>
+    <div class="sec-sc">Marcanna: <span id="sc-e">0</span> / <span id="sct-e">0</span></div>
+  </div>
+  <div id="qe"></div>
+</div>
+
+<script>
+// ══════ UTILITIES ══════
+function norm(s){
+  return s.toLowerCase()
+    .replace(/á/g,'a').replace(/é/g,'e').replace(/í/g,'i').replace(/ó/g,'o').replace(/ú/g,'u')
+    .replace(/[''`]/g,"'").replace(/[^a-z0-9' ]/g,' ').replace(/\s+/g,' ').trim();
+}
+function check(user,answers){
+  const u=norm(user);if(!u)return false;
+  for(const a of answers){
+    const n=norm(a);if(u===n)return true;
+    const ut=u.split(' ').filter(x=>x.length>1);
+    const nt=n.split(' ').filter(x=>x.length>1);
+    if(nt.length<=3){if(ut.length!==nt.length)continue;let d=0;for(let i=0;i<nt.length;i++)if(ut[i]!==nt[i])d++;if(d<=1)return true;}
+    else{const hits=nt.filter(t=>u.includes(t));if(hits.length/nt.length>=0.72)return true;}
+  }return false;
+}
+function shuffle(a){const b=[...a];for(let i=b.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[b[i],b[j]]=[b[j],b[i]];}return b;}
+function pick4(c,pool){const o=shuffle(pool.filter(x=>x!==c));const opts=shuffle([c,...o.slice(0,3)]);return{opts,idx:opts.indexOf(c)};}
+
+const sc={a:0,b:0,c:0,d:0,e:0},st={a:0,b:0,c:0,d:0,e:0};
+function addSc(s,p){sc[s]+=p;document.getElementById('sc-'+s).textContent=sc[s];let t=0;for(const k in sc)t+=sc[k];document.getElementById('total-pts').textContent=t;}
+function addTot(s,p){st[s]+=p;document.getElementById('sct-'+s).textContent=st[s];}
+
+function buildMC(cont,sec,id,num,pts,prompt,hint,opts,cidx,tip){
+  addTot(sec,pts);
+  const d=document.createElement('div');d.className='qcard';d.id=`q-${sec}-${id}`;
+  const oh=opts.map((o,i)=>`<button class="mco" id="o-${sec}-${id}-${i}" onclick="pickMC('${sec}','${id}',${i},${cidx},${pts},'${encodeURIComponent(tip)}')">${o}</button>`).join('');
+  d.innerHTML=`<div class="qctop"><span class="qn">C${num}</span><span class="qp">${pts}m</span></div><div class="qcbody"><div class="qga">${prompt}</div>${hint?`<div class="qhint">💡 ${hint}</div>`:''}<div class="mcg" id="mg-${sec}-${id}">${oh}</div><div class="fb" id="fb-${sec}-${id}"><div class="fbtop" id="fbt-${sec}-${id}"></div><div class="fbbody"><div class="fb-tip" id="fbtip-${sec}-${id}"></div></div></div></div>`;
+  cont.appendChild(d);
+}
+window.pickMC=function(sec,id,chosen,correct,pts,tipEnc){
+  const tip=decodeURIComponent(tipEnc);
+  document.querySelectorAll(`#mg-${sec}-${id} .mco`).forEach(b=>b.disabled=true);
+  const ok=chosen===correct;
+  const card=document.getElementById(`q-${sec}-${id}`);card.classList.add(ok?'ok':'err');
+  document.getElementById(`o-${sec}-${id}-${correct}`).classList.add('cok');
+  if(!ok)document.getElementById(`o-${sec}-${id}-${chosen}`).classList.add('cer');
+  const fbt=document.getElementById(`fbt-${sec}-${id}`);fbt.className='fbtop '+(ok?'fb-ok':'fb-er');
+  fbt.textContent=ok?`✓ Ceart! +${pts} marc`:'✗ Mícheart';
+  document.getElementById(`fbtip-${sec}-${id}`).innerHTML=tip;
+  document.getElementById(`fb-${sec}-${id}`).classList.add('show');
+  if(ok)addSc(sec,pts);
+};
+
+function buildTxt(cont,sec,id,num,pts,prompt,hint,answers,display,alt,tip){
+  addTot(sec,pts);
+  const d=document.createElement('div');d.className='qcard';d.id=`q-${sec}-${id}`;
+  d.dataset.answers=JSON.stringify(answers);d.dataset.display=display;d.dataset.alt=alt||'';d.dataset.tip=tip;d.dataset.scored='0';
+  d.innerHTML=`<div class="qctop"><span class="qn">C${num}</span><span class="qp">${pts}m</span></div><div class="qcbody"><div class="qga">${prompt}</div>${hint?`<div class="qhint">💡 ${hint}</div>`:''}<div class="aw"><input class="ainp" id="inp-${sec}-${id}" type="text" placeholder="Scríobh do fhreagra…" onkeydown="if(event.key==='Enter')subTxt('${sec}','${id}',${pts})"><button class="btn btn-chk" onclick="subTxt('${sec}','${id}',${pts})">✓ Seiceáil</button><button class="btn btn-rev" onclick="revTxt('${sec}','${id}',${pts})">Taispeáin</button></div><button class="btn btn-mk" id="mk-${sec}-${id}" onclick="markOk('${sec}','${id}',${pts})">✓ Bhí mé ceart — marc dom</button><div class="fb" id="fb-${sec}-${id}"><div class="fbtop" id="fbt-${sec}-${id}"></div><div class="fbbody"><div class="fb-ans" id="fba-${sec}-${id}"></div><div class="fb-alt" id="fbalt-${sec}-${id}" style="display:none"></div><div class="fb-tip" id="fbtip-${sec}-${id}"></div></div></div></div>`;
+  cont.appendChild(d);
+}
+window.subTxt=function(sec,id,pts){
+  const card=document.getElementById(`q-${sec}-${id}`);if(card.dataset.scored==='1')return;
+  const val=document.getElementById(`inp-${sec}-${id}`).value.trim();if(!val)return;
+  const ok=check(val,JSON.parse(card.dataset.answers));card.dataset.scored='1';
+  const inp=document.getElementById(`inp-${sec}-${id}`);inp.disabled=true;inp.classList.add(ok?'ok-i':'er-i');
+  card.classList.add(ok?'ok':'err');
+  const fbt=document.getElementById(`fbt-${sec}-${id}`);fbt.className='fbtop '+(ok?'fb-ok':'fb-er');
+  fbt.textContent=ok?`✓ Ceart! +${pts} marc`:'✗ Mícheart — féach an freagra';
+  document.getElementById(`fba-${sec}-${id}`).textContent='Freagra: '+card.dataset.display;
+  const alt=card.dataset.alt;if(alt){const ae=document.getElementById(`fbalt-${sec}-${id}`);ae.textContent='Freisin: '+alt;ae.style.display='';}
+  document.getElementById(`fbtip-${sec}-${id}`).innerHTML=card.dataset.tip;
+  document.getElementById(`fb-${sec}-${id}`).classList.add('show');
+  if(ok)addSc(sec,pts);else{const mk=document.getElementById(`mk-${sec}-${id}`);if(mk)mk.style.display='inline-block';}
+};
+window.revTxt=function(sec,id,pts){
+  const card=document.getElementById(`q-${sec}-${id}`);if(card.dataset.scored==='1')return;
+  card.dataset.scored='1';document.getElementById(`inp-${sec}-${id}`).disabled=true;card.classList.add('skp');
+  const fbt=document.getElementById(`fbt-${sec}-${id}`);fbt.className='fbtop fb-sk';fbt.textContent='Taispeánta — 0 marc';
+  document.getElementById(`fba-${sec}-${id}`).textContent='Freagra: '+card.dataset.display;
+  const alt=card.dataset.alt;if(alt){const ae=document.getElementById(`fbalt-${sec}-${id}`);ae.textContent='Freisin: '+alt;ae.style.display='';}
+  document.getElementById(`fbtip-${sec}-${id}`).innerHTML=card.dataset.tip;
+  document.getElementById(`fb-${sec}-${id}`).classList.add('show');
+};
+window.markOk=function(sec,id,pts){
+  const card=document.getElementById(`q-${sec}-${id}`);if(card.dataset.extramark)return;card.dataset.extramark='1';
+  addSc(sec,pts);const fbt=document.getElementById(`fbt-${sec}-${id}`);fbt.className='fbtop fb-ok';fbt.textContent=`✓ Marcáilte ceart! +${pts} marc`;
+  card.classList.remove('err');card.classList.add('ok');const inp=document.getElementById(`inp-${sec}-${id}`);
+  if(inp){inp.classList.remove('er-i');inp.classList.add('ok-i');}document.getElementById(`mk-${sec}-${id}`).style.display='none';
+};
+function T(id,btn){document.querySelectorAll('.panel').forEach(p=>p.classList.remove('on'));document.querySelectorAll('.tab').forEach(b=>b.classList.remove('on'));document.getElementById(id).classList.add('on');btn.classList.add('on');}
+
+// ══════ DATA ══════
+
+// ── A: Aithint (MC) ──
+const tensePool=['An Aimsir Ghnáthchaite','An Aimsir Chaite','An Modh Coinníollach','An Aimsir Láithreach','An Aimsir Fháistineach'];
+const aData=[
+  {form:'D\'fhágadh',ctx:'D\'fhágadh mo mháthair ann mé',correct:'An Aimsir Ghnáthchaite',hint:'3ú pearsa uatha · fág',tip:'GA: D\'FHÁGADH = aimsir ghnáthchaite de "fág" (1ú Réimniú), 3ú pearsa uatha. D\' roimh fh+guta + -adh. EN: D\'fhágadh = she/he used to leave. D\' before f+vowel, then -adh for 3sg past habitual.'},
+  {form:'Cheannaídís',ctx:'Cheannaídís na geansaithe dom',correct:'An Aimsir Ghnáthchaite',hint:'3ú pearsa iolra · ceannaigh',tip:'GA: CHEANNAÍDÍS = aimsir ghnáthchaite de "ceannaigh" (2ú Réimniú), 3ú pearsa iolra. Séimhiú + -ídís. EN: Cheannaídís = they used to buy. 2nd conjugation 3pl past habitual: -ídís.'},
+  {form:'Ní bhíodh',ctx:'Ní bhíodh oíche ann nach mbínn ag imirt',correct:'An Aimsir Ghnáthchaite',hint:'Diúltach · bí · 3ú pearsa',tip:'GA: NÍ BHÍODH = aimsir ghnáthchaite dhiúltach de "bí", 3ú pearsa uatha. Ní + séimhiú (bí→bhí) + -odh. EN: Ní bhíodh = there used not to be / she used not to. Note: not bhíodh alone (that would be affirmative).'},
+  {form:'Thógadh',ctx:'Thógadh m\'athair mé nuair a bhíodh an traenáil thart',correct:'An Aimsir Ghnáthchaite',hint:'3ú pearsa uatha · tóg',tip:'GA: THÓGADH = aimsir ghnáthchaite de "tóg" (1ú Réimniú), 3ú pearsa uatha. Séimhiú + -adh. EN: Thógadh = he/she used to take/lift. 1st conjugation broad stem + -adh.'},
+  {form:'Mbínn',ctx:'nach mbínn ag smaoineamh air sin san am',correct:'An Aimsir Ghnáthchaite',hint:'Foirm spleách · bí · 1ú pearsa',tip:'GA: NACH MBÍNN = aimsir ghnáthchaite (foirm spleách) de "bí", 1ú pearsa uatha diúltach. Urú i ndiaidh nach (bí→mbí) + -nn. EN: nach mbínn = that I didn\'t used to. Dependent form: nach + eclipsis. -nn = 1sg past habitual ending.'},
+  {form:'Théadh',ctx:'Théadh Síle go Gaoth Dobhair gach samhradh',correct:'An Aimsir Ghnáthchaite',hint:'3ú pearsa uatha · téigh (mírialta)',tip:'GA: THÉADH = aimsir ghnáthchaite de "téigh" (mírialta), 3ú pearsa uatha. Gas láithreach (téann) → Théadh. EN: Théadh = she/he used to go. Irregular téigh: past habitual uses the present stem (téann → théadh).'},
+  {form:'D\'fhaighidís',ctx:'D\'fhaighidís litir gach seachtain',correct:'An Aimsir Ghnáthchaite',hint:'3ú pearsa iolra · faigh (mírialta)',tip:'GA: D\'FHAIGHIDÍS = aimsir ghnáthchaite de "faigh" (mírialta), 3ú pearsa iolra. D\' + gas láithreach + -idís. EN: D\'fhaighidís = they used to get/receive. Irregular faigh: present stem faigh- + -idís.'},
+  {form:'Ní chluinínn',ctx:'Ní chluinínn é go minic san am sin',correct:'An Aimsir Ghnáthchaite',hint:'Diúltach · cluin · 1ú pearsa',tip:'GA: NÍ CHLUINÍNN = aimsir ghnáthchaite dhiúltach de "cluin" (mírialta), 1ú pearsa uatha. Ní + séimhiú + gas láithreach + -inn. EN: Ní chluinínn = I used not to hear. Irregular cluin: present stem cluini- + -nn.'},
+  {form:'Dúnadh',ctx:'Dúnadh an siopa ag a cúig a chlog',correct:'An Aimsir Ghnáthchaite',hint:'Uathoibreánach / autonomous · dún',tip:'GA: DÚNADH = foirm uathoibríoch na haimsire gnáthchaite de "dún". Gan séimhiú ar an fhoirm uathoibríoch. EN: Dúnadh = the shop used to be closed. Note: the autonomous (impersonal) past habitual has NO lenition, unlike all personal forms.'},
+  {form:'Ba ghnách leo',ctx:'Ba ghnách leo bualadh le chéile sa chaife',correct:'An Aimsir Ghnáthchaite',hint:'Leagan timchainteach · 3ú pearsa iolra',tip:'GA: BA GHNÁCH LEO = leagan timchainteach den aimsir ghnáthchaite. Leo = leo (leis + iad) = with them. Ba ghnách + réamhfhocal pearsanta + ainm briathartha. EN: Ba ghnách leo = they used to. Periphrastic version: ba ghnách + prepositional pronoun + VN.'},
+  {form:'An dteiteá',ctx:'An dteiteá amach go minic sna laethanta sin?',correct:'An Aimsir Ghnáthchaite',hint:'Ceisteach · téigh · 2ú pearsa uatha',tip:'GA: AN DTEITEÁ = aimsir ghnáthchaite cheisteach de "téigh" (mírialta), 2ú pearsa uatha. An + urú (t→dt) + gas láithreach + -eá. EN: An dteiteá = did you used to go? Irregular téigh 2sg: an + eclipsis on t → dt, then -eá.'},
+  {form:'Dhéanaidís',ctx:'Dhéanaidís an obair gach Luan',correct:'An Aimsir Ghnáthchaite',hint:'3ú pearsa iolra · déan (mírialta)',tip:'GA: DHÉANAIDÍS = aimsir ghnáthchaite de "déan" (mírialta), 3ú pearsa iolra. Gas láithreach (déanann) + séimhiú + -aidís. EN: Dhéanaidís = they used to do/make. Irregular déan 3pl past habitual: -aidís.'},
+];
+
+const qa=document.getElementById('qa');
+aData.forEach((q,i)=>{
+  const{opts,idx}=pick4(q.correct,tensePool);
+  buildMC(qa,'a',i,i+1,1,`Cén aimsir/modh? <span style="color:var(--teal);font-family:'JetBrains Mono',monospace;font-size:1.1rem">${q.form}</span><br><span style="color:var(--dim);font-size:.82rem;font-style:italic">"${q.ctx}"</span>`,q.hint,opts,idx,q.tip);
+});
+
+// ── B: Cuir san Aimsir Ghnáthchaite ──
+const bData=[
+  {prompt:'Rinne siad an obair.<br><span style="color:var(--dim);font-size:.85rem">→ Cuir san aimsir ghnáthchaite, 3ú pearsa iolra</span>',answers:['dheanaidis an obair','dhéanaidís an obair'],display:'Dhéanaidís an obair.',alt:'',tip:"GA: Déan → mírialta. Gnáthchaite 3ú pearsa iolra: dhéanaidís. Gas láithreach + séimhiú + -aidís. EN: Irregular déan. Past habitual 3pl: dhéanaidís. Present stem + séimhiú + -aidís.",pts:2},
+  {prompt:'Ní bhainimid sult as an scoil.<br><span style="color:var(--dim);font-size:.85rem">→ Cuir san aimsir ghnáthchaite, 1ú pearsa iolra</span>',answers:['ni bhainimis sult as an scoil'],display:'Ní bhainimis sult as an scoil.',alt:'',tip:"GA: Bain → 1ú Réimniú. Gnáthchaite diúltach 1ú pearsa iolra: Ní bhainimis (táthaithe) nó Ní bhaineadh muid. Ní + séimhiú + -imis. EN: 1st conjugation 1pl past habitual: -imis (synthetic negative).",pts:2},
+  {prompt:'An dtéann tú amach go minic?<br><span style="color:var(--dim);font-size:.85rem">→ Cuir san aimsir ghnáthchaite, 2ú pearsa uatha</span>',answers:['an dteiteá amach go minic'],display:'An dteiteá amach go minic?',alt:'',tip:"GA: Téigh → mírialta. Gnáthchaite ceisteach 2ú pearsa uatha: An dteiteá. An + urú (t→dt) + gas láithreach + -eá. EN: Irregular téigh. Past habitual 2sg question: an + eclipsis + -eá.",pts:2},
+  {prompt:'Dúirt tú go dtuigeann tú gach rud.<br><span style="color:var(--dim);font-size:.85rem">→ Cuir san aimsir ghnáthchaite, 2ú pearsa uatha</span>',answers:['deirteá go dtuigteá gach rud'],display:'Deirteá go dtuigteá gach rud.',alt:'',tip:"GA: Abair/deir → ní shéimhítear san aimsir ghnáthchaite! Deirteá = 2ú pearsa uatha. Tuig → dtuigteá (foirm spleách le urú + -teá). EN: Abair/deir is NOT lenited in past habitual. Deirteá = you used to say. Dependent form: go + eclipsis + -teá.",pts:2},
+  {prompt:'Ceannaímid barraíocht bréagán um Nollaig.<br><span style="color:var(--dim);font-size:.85rem">→ Cuir san aimsir ghnáthchaite, 1ú pearsa iolra</span>',answers:['cheannaímis barraíocht bréagán um nollaig','cheannaímis barraiocht bréagán um nollaig'],display:'Cheannaímis barraíocht bréagán um Nollaig.',alt:'',tip:"GA: Ceannaigh → 2ú Réimniú. Gnáthchaite 1ú pearsa iolra: cheannaímis (táthaithe) nó cheannaíodh muid. Séimhiú + -aímis. EN: 2nd conjugation 1pl past habitual: -aímis (synthetic).",pts:2},
+  {prompt:'Bhí Páras go hiontach.<br><span style="color:var(--dim);font-size:.85rem">→ Cuir san aimsir ghnáthchaite</span>',answers:['bhíodh páras go hiontach','bhiodh paras go hiontach'],display:'Bhíodh Páras go hiontach.',alt:'',tip:"GA: Bí → mírialta. Gnáthchaite 3ú pearsa uatha: bhíodh. EN: Irregular bí. Past habitual 3sg: bhíodh. Compare: bhí (simple past) vs bhíodh (past habitual).",pts:2},
+  {prompt:'An raibh tú tinn?<br><span style="color:var(--dim);font-size:.85rem">→ Cuir san aimsir ghnáthchaite</span>',answers:['an mbiteá tinn','an mbíteá tinn'],display:'An mbíteá tinn?',alt:'',tip:"GA: Bí → mírialta. Gnáthchaite ceisteach 2ú pearsa uatha: An mbíteá. An + urú (bí→mbí) + -teá. EN: Irregular bí. Past habitual 2sg question: an + eclipsis + -teá.",pts:2},
+  {prompt:'Ní raibh mé ag an fhéile.<br><span style="color:var(--dim);font-size:.85rem">→ Cuir san aimsir ghnáthchaite</span>',answers:['ni bhinn ag an fheile','ní bhínn ag an fhéile'],display:'Ní bhínn ag an fhéile.',alt:'',tip:"GA: Bí → mírialta. Gnáthchaite diúltach 1ú pearsa uatha: Ní bhínn. Ní + séimhiú (bí→bhí) + -nn. EN: Irregular bí. Past habitual 1sg negative: ní bhínn. Compare conditional: ní bheinn.",pts:2},
+];
+
+const qb=document.getElementById('qb');
+bData.forEach((q,i)=>{
+  buildTxt(qb,'b',i,i+1,q.pts,q.prompt,null,q.answers,q.display,q.alt,q.tip);
+});
+
+// ── C: Aistriúchán ──
+const cData=[
+  {en:"Máirtín used to clean the house on Monday.",answers:["ghlanadh mairtín an teach ar an luan","ghlanadh mairtín an teach ar an luan"],display:"Ghlanadh Máirtín an teach ar an Luan.",alt:"Ba ghnách le Máirtín an teach a ghlanadh ar an Luan.",tip:"GA: Glan → 1ú Réimniú. Gnáthchaite 3ú pearsa uatha: ghlanadh. Séimhiú + -adh. Leagan timchainteach: Ba ghnách le Máirtín + ainm briathartha. EN: 1st conjugation 3sg: -adh. Periphrastic alternative: Ba ghnách le X + VN.",pts:2},
+  {en:"He used to listen to the radio often.",answers:["d'eisteadh sé leis an raidió go minic","d eisteadh sé leis an radio go minic"],display:"D'éisteadh sé leis an raidió go minic.",alt:"Ba ghnách leis éisteacht leis an raidió go minic.",tip:"GA: Éist → 1ú Réimniú. D' roimh ghuta + séimhiú + -eadh. EN: 1st conjugation 3sg: D\'éisteadh. D\' before vowel-initial lenited stem. -eadh (slender).",pts:2},
+  {en:"She didn't used to ask interesting questions.",answers:["ni chuireadh sí ceisteanna suimiúla","ni chuireadh si ceisteanna suimiula"],display:"Ní chuireadh sí ceisteanna suimiúla.",alt:"Níor ghnách léi ceisteanna suimiúla a chur.",tip:"GA: Cuir → 1ú Réimniú. Diúltach 3ú pearsa: Ní chuireadh. Ní + séimhiú + -eadh. EN: 1st conjugation 3sg negative: ní + séimhiú + -eadh. Periphrastic negative: Níor ghnách léi + VN.",pts:2},
+  {en:"We used to stay at home on Saturday night.",answers:["d'fhanaimis sa bhaile oiche shathairn","d'fhanaimis sa bhaile oíche shathairn"],display:"D'fhanaimis sa bhaile oíche Shathairn.",alt:"Ba ghnách linn fanacht sa bhaile oíche Shathairn.",tip:"GA: Fan → 1ú Réimniú. D' roimh fh+guta + séimhiú + -aimis (1ú pearsa iolra táthaithe). EN: Fan 1pl past habitual synthetic: d\'fhanaimis. D\' before f+vowel. -aimis = 1pl synthetic ending.",pts:2},
+  {en:"Seán used to enjoy the music.",answers:["bhaineadh seán sult as an cheol","bhaineadh seán sult as an ceol"],display:"Bhaineadh Seán sult as an cheol.",alt:"Ba ghnách le Seán sult a bhaint as an cheol.",tip:"GA: Bain → 1ú Réimniú. Gnáthchaite 3ú pearsa uatha: Bhaineadh. Séimhiú + -eadh (slender: bain is slender). EN: 1st conjugation slender stem: -eadh. 'Bain sult as' = enjoy.",pts:2},
+  {en:"She didn't used to be late.",answers:["ni bhíodh sí mall","ni bhiodh si mall"],display:"Ní bhíodh sí mall.",alt:"Níor ghnách léi bheith mall.",tip:"GA: Bí → mírialta. Gnáthchaite 3ú pearsa uatha diúltach: Ní bhíodh. Ní + séimhiú (bí→bhí) + -odh. EN: Irregular bí 3sg past habitual negative: ní bhíodh.",pts:2},
+  {en:"They used to go on holidays every year.",answers:["théidís ar laethanta saoire gach bliain","theidis ar laethanta saoire gach bliain"],display:"Théidís ar laethanta saoire gach bliain.",alt:"Ba ghnách leo dul ar laethanta saoire gach bliain.",tip:"GA: Téigh → mírialta. Gnáthchaite 3ú pearsa iolra: Théidís. Gas láithreach (téann) + séimhiú + -idís. EN: Irregular téigh 3pl past habitual: théidís. Present stem + séimhiú + -idís.",pts:2},
+  {en:"She used to see me fairly often.",answers:["d'fheiceadh sí go measartha minic mé","d fheiceadh si go measartha minic me"],display:"D'fheiceadh sí go measartha minic mé.",alt:"Ba ghnách léi mé a fheiceáil go measartha minic.",tip:"GA: Feic → mírialta. D'fheiceadh = gnáthchaite 3ú pearsa uatha. D\' + gas láithreach + séimhiú + -eadh. EN: Irregular feic 3sg past habitual: d\'fheiceadh. D\' before f+vowel.",pts:2},
+  {en:"They used to save all their money for their holidays.",answers:["cuiridís a gcuid airgid i dtaisce dá laethanta saoire","cuiridís a gcuid airgid i dtaisce da laethanta saoire"],display:"Chuiridís a gcuid airgid i dtaisce dá laethanta saoire.",alt:"Ba ghnách leo a gcuid airgid a chur i dtaisce dá laethanta saoire.",tip:"GA: Cuir → 1ú Réimniú. Gnáthchaite 3ú pearsa iolra: Chuiridís. Séimhiú + -idís. 'I dtaisce' = saved/put aside. EN: 1st conjugation 3pl: -idís. 'Cuir i dtaisce' = save (money).",pts:2},
+  {en:"I used to be jealous of them because I used to work all summer.",answers:["bhíodh éad orm leo mar d'oibrínn ar feadh an tsamhraidh","bhiodh ead orm leo mar d oibrinn ar feadh an tsamhraidh"],display:"Bhíodh éad orm leo mar d'oibrínn ar feadh an tsamhraidh.",alt:'',tip:"GA: Bí → bhíodh (gnáthchaite 3ú p.). Oibrigh → d'oibrínn (2ú Réimniú, gnáthchaite 1ú p. uatha). 'Éad' = jealousy, envy. EN: Bí 3sg: bhíodh. Oibrigh 2nd conj. 1sg past habitual: d\'oibrínn.",pts:2},
+];
+
+const qc=document.getElementById('qc');
+cData.forEach((q,i)=>{
+  buildTxt(qc,'c',i,i+1,q.pts,q.en,'Aistrigh go Gaeilge (aimsir ghnáthchaite)',q.answers,q.display,q.alt,q.tip);
+});
+
+// ── D: Léamhthuiscint ──
+const dData=[
+  {q:'Ar chreid an t-údar go mbeadh síocháin ann lena bheo?',answers:['nior chreid','nior chreid se go bhfeicfeadh se an tsíocháin lena linn','nior cheap se go dtarlodh se le a linn'],display:"Níor chreid sé go bhfeicfeadh sé an tsíocháin lena linnse.",alt:'',tip:"GA: Freagra díreach: Níor chreid + caint indíreach. 'Lena linnse' = in his lifetime. EN: He did not believe he would see peace in his lifetime. Use past tense: níor chreid.",pts:2},
+  {q:'Cén fáth a luaitear 1969?',answers:['thosaigh an trioblóidí','is beag cuimhne atá aige ar an tsaol roimh','nior thosaigh an trioblóidí go 1969'],display:"Is beag cuimhne atá aige ar an tsaol roimh 1969 — thosaigh na Trioblóidí an bhliain sin.",alt:'',tip:"GA: 1969 = bliain na dTrioblóidí. 'Is beag cuimhne atá agam' = I have little memory. EN: The Troubles started in 1969 — he was only 7 and remembers little of life before them.",pts:2},
+  {q:'Cad é an chuimhne atá ag an údar ar Bhéal Feirste roimh an Chomhaontú?',answers:['cuma ghruama dhearóil ar an chathair','bíonn cuma ghruama dhearóil ar an chathair'],display:"Tá cuimhne aige ar an chathair mar áit a raibh cuma ghruama dhearóil uirthi.",alt:'Bhí cuma ghruama ar an áit.',tip:"GA: 'Gruama' = gloomy/miserable. 'Dhearóil' = desolate/wretched. Cuimhne aige = he remembers. EN: He remembers Belfast as a gloomy, desolate place. Key adjectives: gruama, dearóil.",pts:2},
+  {q:'Cad é mar a mhothaigh na daoine nuair a bhí an Comhaontú ann?',answers:['bhí lúcháir ar aghaidh na ndaoine agus gliondar agus fonn ceiliúrtha','bhí lúcháir agus gliondar ann'],display:"Bhí lúcháir ar aghaidh na ndaoine ar an teilifís, agus gliondar agus fonn ceiliúrtha.",alt:'',tip:"GA: 'Lúcháir' = joy/delight. 'Gliondar' = gladness. 'Fonn ceiliúrtha' = a desire to celebrate. EN: People showed joy and a desire to celebrate. Key nouns: lúcháir, gliondar, fonn ceiliúrtha.",pts:2},
+  {q:'Cad é an comhchiallach le "go deo"?',answers:['choíche','coiche'],display:"Choíche",alt:'',tip:"GA: Go deo = choíche = never/ever. Dhá fhocal le brí chosúil: 'go deo' agus 'choíche'. EN: Both 'go deo' and 'choíche' mean 'forever/ever/never' (in negative context). They are synonyms.",pts:2},
+  {q:'Cad a chruthaigh an Comhaontú don údar, seachas síocháin?',answers:['chruthaigh sé spás dó le tús a chur le aistear foghlama chun na gaeilge','spas le foghlaim gaeilge','tus a chur le foghlaim gaeilge'],display:"Chruthaigh sé spás dó le tús a chur le m'aistear foghlama chun na Gaeilge.",alt:'',tip:"GA: Seachas = apart from/besides. 'Spás' = space/room. 'Aistear foghlama' = learning journey. EN: As well as peace, it created space for him to begin his Irish language learning journey.",pts:2},
+  {q:'Cuir comhchiallach le "lúcháir".',answers:['gliondar','áilleacht','áthas mór'],display:"Gliondar",alt:'Áthas mór / ardú croí',tip:"GA: Lúcháir = gliondar = joy/delight. Comhchiallaigh eile: áthas, áilleacht. EN: Lúcháir and gliondar are synonyms meaning great joy or delight. Given explicitly in the answer sheet.",pts:2},
+];
+
+const qd=document.getElementById('qd');
+dData.forEach((q,i)=>{
+  buildTxt(qd,'d',i,i+1,q.pts,q.q,null,q.answers,q.display,q.alt,q.tip);
+});
+
+// ── E: Stór Focal ──
+const eData=[
+  // vocabulary
+  ['Brexit','An Breatimeacht','An eite chlé','Cinedheighilt','Toghchán'],
+  ['Climate change','Athrú aeráide','Truailliú','Beartas inimirce','Foréigean'],
+  ['Civil rights','Cearta sibhialta','Leithcheal','Cinedheighilt','Dílárú'],
+  ['Apartheid','Cinedheighilt','Leithcheal','Coimheascar','Comhcheilg'],
+  ['Election','Toghchán','Comhthionól','Dílárú','Foréigean'],
+  ['Terrorism','Sceimhlitheoireacht','Foréigean','Coimheascar','Comhcheilg'],
+  ['Discrimination','Leithcheal','Cearta sibhialta','Cinedheighilt','Foréigean'],
+  ['Assembly','Comhthionól','Dílárú','Comhcheilg','Toghchán'],
+  ['Devolution','Dílárú','Comhthionól','Toghchán','Cearta sibhialta'],
+  ['Loyalist','Dílseoir','Náisiúnaí','Aontachtaí','Coimheascar'],
+  ['Unionist','Aontachtaí','Dílseoir','Náisiúnaí','Fórsaí slándála'],
+  ['Nationalist','Náisiúnaí','Aontachtaí','Dílseoir','An eite chlé'],
+  ['Violence','Foréigean','Sceimhlitheoireacht','Coimheascar','Fórsaí slándála'],
+  ['Conspiracy','Comhcheilg','Coimheascar','Comhthionól','Foréigean'],
+  ['Cost of living crisis','Géarchéim costais maireachtála','Beartas inimirce','Leithcheal','Dílárú'],
+  ['Immigration policy','Beartas inimirce','Géarchéim costais maireachtála','Cearta sibhialta','Athrú aeráide'],
+  ['Pollution','Truailliú','Athrú aeráide','Foréigean','Leithcheal'],
+  ['Skirmish','Coimheascar','Foréigean','Comhcheilg','Sceimhlitheoireacht'],
+  // phrases
+  ["I couldn't care less about politics","Is ríchuma liom faoi chúrsaí polaitíochta","Is tábhachtach liom an pholaitíocht","Ní thugaim lá airde uirthi","Is cur amú ama an pholaitíocht"],
+  ["We all have a duty to be aware of current affairs","Tá sé de dhualgas orainn uilig a bheith eolach ar chúrsaí reatha","Ní chaillfinn an nuacht ar ór ná ar airgead","Is eagal liom nach bhfuil mé chomh heolach agus ba chóir","Is doiligh an fhírinne a aimsiú"],
+  ["The news would depress you","Chuirfeadh an nuacht dúlagar ort","Ní chaillfinn an nuacht ar ór ná ar airgead","Tá sé de dhualgas orainn bheith eolach","Is doiligh an fhírinne a aimsiú"],
+  ["I wouldn't miss the news for the world","Ní chaillfinn an nuacht ar ór ná ar airgead","Chuirfeadh an nuacht dúlagar ort","Is eagal liom nach bhfuil mé eolach","Is cur amú ama an pholaitíocht"],
+  ["The housing issue is my biggest worry","Tá ceist na tithíochta ar an chloch is mó ar mo phaidrín","Is iad na fadhbanna sa chóras sláinte an gad is giorra don scornach","Tá gach duine thíos leis an ghéarchéim","Is doiligh iad a chur in ord tosaíochta"],
+  ["There is strength in unity","Ní neart go cur le chéile","De réir a chéile a thógtar na caisleáin","Ní lia duine ná tuairim","Is fada an bóthar romhainn"],
+  ["Rome wasn't built in a day","De réir a chéile a thógtar na caisleáin","Ní neart go cur le chéile","Is fada an bóthar romhainn","Tnúth a threabhas"],
+  ["Everyone has their own opinion","Ní lia duine ná tuairim","Ní neart go cur le chéile","De réir a chéile a thógtar na caisleáin","Is fada an bóthar romhainn"],
+  // current affairs from passage
+  ["Agreement / Treaty (comhaontú)","Comhaontú","Coimheascar","Athmhuintearas","Dóchas"],
+  ["Reconciliation (athmhuintearas)","Athmhuintearas","Comhaontú","Síocháin","Dílárú"],
+  ["Gloomy / dismal (gruama)","Gruama","Lonrach","Ceolmhar","Dearóil"],
+  ["Joy / delight (lúcháir)","Lúcháir","Gruama","Dóchas","Gliondar"],
+  ["Hope (dóchas)","Dóchas","Lúcháir","Athmhuintearas","Gliondar"],
+];
+
+const qe=document.getElementById('qe');
+eData.forEach((row,i)=>{
+  const[en,correct,...others]=row;
+  const opts=shuffle([correct,...others]);
+  const idx=opts.indexOf(correct);
+  buildMC(qe,'e',i,i+1,1,en,null,opts,idx,`GA: <strong>${correct}</strong> = ${en}. EN: The correct Irish for "${en}" is <strong>${correct}</strong>.`);
+});
+</script>
+</body>
+</html>
